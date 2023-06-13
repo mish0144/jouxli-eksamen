@@ -1,0 +1,22 @@
+---
+import AstroGreet from './rick.astro';
+const greetings = ["Yo", "Hello", "Salut"]
+---
+<script>
+    
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    const randomPhotos = shuffleArray({greetings});
+</script>
+
+<!-- Use the default message: “Welcome, world!” -->
+<AstroGreet />
+
+<!-- Use custom messages passed as a props. -->
+<AstroGreet message="Lovely day to build components!" /> {greetings}
+<AstroGreet message="Glad you made it! 👋" />
