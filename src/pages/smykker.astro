@@ -15,98 +15,166 @@ const options = {
 };
 
 const response = await fetch(url, options);
-const data = await response.json();
+const data = JSON.stringify(await response.json());
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-const randomPhotos = shuffleArray(data);
-const TallPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "3");
-const FlatPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "2");
-const SquarePhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "1");
 
 
 ---
-
 <script src="../scripts/menu2.js"></script>
 <script src="../scripts/fadein.js"></script>
 
 <MainLayout withBackground>
     <h1>SMYKKER</h1>
     <p>Opdag den verden jOUXli skaber med sine smykker. En verden af historie støbt ind i håndlavede unika smykker i dansk design lavet af nøje udvalgte materialer.</p>
-    <section class="listview_grid">
+    <section class="listview_grid" data-images={data}>
         <div class="listview_grid_boxbig1_1 box1 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}/>
+            
+            <data-switcher data-type="Square" data-number="1">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_box2_1 box2 elem to-fade-in">
-            <Shelf  indhold={FlatPhotos.shift()}>
+            <data-switcher data-type="Flat" data-number="1">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_2 box3 elem to-fade-in">
-            <Shelf indhold={TallPhotos.shift()}>
+            <data-switcher data-type="Tall" data-number="1">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box4 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="2">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box5 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="3">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box6 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="4">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_2_2nd box7 elem to-fade-in">
-            <Shelf indhold={TallPhotos.shift()}>
+            <data-switcher data-type="Tall" data-number="2">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box8 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="5">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_box2_1 box9 elem to-fade-in">
-            <Shelf indhold={FlatPhotos.shift()}>
+            <data-switcher data-type="Flat" data-number="2">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxbig1_1 box10 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="6">
+                <Shelf />
+            </data-switcher>
         </div>
 
 
         <div class="listview_grid_boxbig1_1 box1 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}/>
+            <data-switcher data-type="Square" data-number="7">
+                <Shelf />
+        </data-switcher>
         </div>
         <div class="listview_grid_box2_1 box2 elem to-fade-in">
-            <Shelf  indhold={FlatPhotos.shift()}>
+            <data-switcher data-type="Flat" data-number="3">
+                <Shelf  />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_2 box3 elem to-fade-in">
-            <Shelf indhold={TallPhotos.shift()}>
+            <data-switcher data-type="Tall" data-number="3">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box4 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="8">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box5 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="9">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box11 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="10">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_2_2nd box12 elem to-fade-in">
-            <Shelf indhold={TallPhotos.shift()}>
+            <data-switcher data-type="Tall" data-number="4">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxsmall1_1 box13 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="11">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_box2_1 box14 elem to-fade-in">
-            <Shelf indhold={FlatPhotos.shift()}>
+            <data-switcher data-type="Flat" data-number="4">
+                <Shelf />
+            </data-switcher>
         </div>
         <div class="listview_grid_boxbig1_1 box15 elem to-fade-in">
-            <Shelf indhold={SquarePhotos.shift()}>
+            <data-switcher data-type="Square" data-number="12">
+                <Shelf />
+            </data-switcher>
         </div>
             
             
     </section>
 </MainLayout>
 
+<script>
+    
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    console.log(document.querySelector(".listview_grid"))
+    const imageDataString = document.querySelector(".listview_grid").dataset.images
+    const randomPhotos = shuffleArray(JSON.parse(imageDataString));
+
+    const TallPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "3");
+    const FlatPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "2");
+    const SquarePhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "1");
+    class DataSwitcher extends HTMLElement {
+      constructor() {
+        super();
+  
+        // Read the message from the data attribute.
+        const number = this.dataset.number - 1;
+        const type = this.dataset.type;
+        console.log(number, type)
+        const data = {
+            "Tall": TallPhotos,
+            "Flat": FlatPhotos,
+            "Square": SquarePhotos
+        }[type][number]
+        this.querySelector('img').src = `../../product_img/${data.galleryphoto}`;
+        this.querySelector('img').alt = data.name;
+        this.querySelector('h3').textContent = data.price;
+        this.querySelector('h2').textContent = data.name;
+        this.querySelector('a').href = "/jewelry/" + data.slug;
+      }
+    }
+  
+    customElements.define('data-switcher', DataSwitcher);
+  </script>
 <style>
     p {
         margin-left: 20px;
