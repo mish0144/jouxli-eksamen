@@ -1,0 +1,85 @@
+---
+import "../stylesheets/global.css";
+import { Image, Picture } from "@astrojs/image/components";
+import iconFace from "../assets/icons/facebook-light.svg";
+import iconInsta from "../assets/icons/instagram-light.svg";
+import iconInstaDark from "../assets/icons/instagram-dark.svg";
+import iconFaceDark from "../assets/icons/facebook-dark.svg";
+---
+
+<script src="../scripts/menu.js"></script>
+<footer>
+  <a href="https://goo.gl/maps/UGkkWZiHbx1mpEEaA?coh=178571&entry=tt" target=”_blank”>
+    <div class="footer1">
+      <h3>ADRESSE</h3>
+      <p>Jægersborg Allé 1G</p>
+      <p>2920 Charlottenlund</p>
+    </div>
+  </a>
+  <div class="footer_icons">
+    <a href="https://www.facebook.com/jouxli" target=”_blank”><Image src={iconFace} width={null} height={null} alt="logo" width={50} format={"svg"} class="facebook_icon" /></a>
+    <a href="https://www.instagram.com/jouxli/" target=”_blank”><Image src={iconInsta} width={null} height={null} alt="logo" width={50} format={"svg"} class="instagram_icon" /></a>
+    <Image src={iconFaceDark} alt="logo" width={50} height={null} format={"svg"} class="facebook_icon facebook_icon--hide" />
+    <Image src={iconInstaDark} alt="logo" width={50} height={null} format={"svg"} class="instagram_icon instagram_icon--hide" />
+  </div>
+</footer>
+
+<style>
+  h3 {
+    font-size: 1.4rem;
+    color: var(--white);
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--white);
+  }
+  a {
+    text-decoration: none;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin-inline: auto;
+    z-index: 5;
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
+    position: relative;
+  }
+
+  .footer1 {
+    font-family: "Heebo", sans-serif;
+    font-size: 20px;
+    color: #f2e5d5;
+    margin-left: 20px;
+  }
+
+  .footer_icons {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 20px;
+    gap: 10px;
+  }
+
+  .facebook_icon--hide,
+  .instagram_icon--hide {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .footer_icons,
+    .footer1 {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .footer1 p {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+</style>

@@ -1,0 +1,203 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image, Picture } from "@astrojs/image/components";
+import Underskrift from "../assets/icons/underskrift.svg";
+import backgroundOne from "../assets/icons/smykke_om_desk.svg";
+import backgroundTwo from "../assets/icons/perler_om.svg";
+import backgroundTwodesk from "../assets/icons/halssmykke-modsat.svg";
+import "../stylesheets/global.css";
+---
+
+<script src="../scripts/menu2.js"></script>
+
+<MainLayout>
+  <h1>jOUXli</h1>
+  <div id="wrapper">
+    <section class="p_om">
+      <p>"Jeg laver mine egne smykker i eget design og eget design består af, at jeg finder perler rundt omkring i denne verden. Min inspiration er at gå rundt og se hvad folk klær sig med og hvad de udstråler. Jeg sætter det sammen efter det behov perlerne har, jeg selv har eller hvad vedkommende ønsker. "</p>
+    </section>
+    <section class="underskrift_section">
+      <Image src={Underskrift} width={null} height={null} alt="portrait" format={"svg"} class="underskrift underskriftanimation" />
+    </section>
+    <section class="backgrounds">
+      <Image src={backgroundOne} width={217} height={287} alt="background" format={"svg"} class="backgroundOne" />
+      <Image src={backgroundTwo} width={null} height={null} alt="background" format={"svg"} class="backgroundTwo" />
+      <Image src={backgroundTwodesk} width={null} height={null} alt="background" format={"svg"} class="backgroundTwodesk" />
+    </section>
+    <section class="vid_section">
+      <iframe src="https://www.youtube.com/embed/zY3_CjBMPNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+
+  h1 {
+    font-size: var(--h1_mobile);
+  }
+
+  p {
+    font-size: var(--p_mobile);
+  }
+
+  #wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0 auto;
+  }
+
+  .underskrift_section {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 3em;
+  }
+
+  p {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .backgroundOne {
+    position: absolute;
+    top: 0em;
+    right: 0;
+    z-index: -3;
+    width: 56%;
+  }
+
+  .backgroundTwo {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    max-width: 100%;
+  }
+
+  .backgroundTwodesk {
+    display: none;
+  }
+
+  video {
+    max-width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .underskrift {
+    max-width: 80%;
+  }
+
+
+  .underskriftanimation {
+    animation-name: underskriftanimation_kf;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+@keyframes underskriftanimation_kf{
+    0%{
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+
+    7%{
+      clip-path: polygon(18% 0, 0 0, 0 100%, 0 47%);
+    }
+
+    20%{
+      clip-path: polygon(25% 0, 0 0, 0 100%, 0 100%);
+    }
+
+    35%{
+      clip-path: polygon(39% 0, 0 0, 0 100%, 17% 100%);
+    }
+
+    50%{
+      clip-path: polygon(56% 0, 0 0, 0 100%, 34% 100%);
+    }
+
+    73%{
+      clip-path: polygon(77% 0, 0 0, 0 100%, 56% 100%);
+    }
+
+    85%{
+      clip-path: polygon(100% 0, 0 0, 0 100%, 76% 100%);
+    }
+
+    100%{
+      clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    }
+
+
+  
+  }
+
+  iframe {
+      width: 339px;
+      height: 190.7px;
+    }
+
+
+
+  @media (min-width: 1000px) {
+    #wrapper {
+      max-width: 1000px;
+    }
+
+    .backgroundTwo {
+      display: none;
+    }
+    .backgroundOne {
+      top: 11em;
+    transform: scale(3);
+    right: 9em;
+    }
+    
+    .backgroundTwodesk {
+      position: absolute;
+      display: block;
+      width: 45%;
+      height: auto;
+      bottom: 1em;
+      z-index: -1;
+      left: -12em;
+      transform: rotate(-5deg);
+    }
+    video {
+      padding-bottom: 5em;
+      max-width: 80%;
+    }
+    .underskrift_section {
+      padding-top: 2em;
+      padding-bottom: 5em;
+      transform: scale(1.3);
+    }
+
+    h1 {
+      font-size: var(--h1_desktop);
+    }
+
+    p {
+      font-size: var(--p_desktop);
+    }
+
+    .vid_section {
+      display: flex;
+      justify-content: center;
+    }
+
+    .underskrift {
+      width: 40%;
+    }
+
+    iframe {
+      width: 700px;
+      height: 393.75px;
+    }
+
+    .backgroundOne {
+    width: 12%;
+  }
+  }
+</style>

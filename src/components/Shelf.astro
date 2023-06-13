@@ -1,0 +1,28 @@
+---
+import Jewelry from "./Jewelry.astro";
+const {indhold} = Astro.props;
+const content = Array.isArray(indhold)
+    ? indhold
+    : [indhold]
+---
+
+<div>
+    {
+        content.map((jewelry) => (
+            <Jewelry
+            link={"/jewelry/" + jewelry.slug}
+            name={jewelry.name}
+            price={jewelry.price}
+            galleryphoto={`../../product_img/${jewelry.galleryphoto}`}
+            photo1={`../../product_img/${jewelry.photo1}`}
+            photo2={`../../product_img/${jewelry.photo2}`}
+            description={jewelry.description}
+        />
+        ))
+    }
+</div>
+
+
+<style>
+
+</style>

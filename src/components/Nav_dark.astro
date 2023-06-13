@@ -1,0 +1,184 @@
+---
+import logoDark from "../assets/icons/logo_dark.svg";
+import { Image, Picture } from "@astrojs/image/components";
+import "../stylesheets/global.css";
+---
+
+<script src="../scripts/menu2.js"></script>
+<nav>
+  <a href="/"><Image class="logo" src={logoDark} width={null} height={null} alt="logo" format={"svg"} /></a>
+  <button>MENU</button>
+</nav>
+<div class="menu">
+  <ul>
+    <li><a href="/smykker/">SMYKKER</a></li>
+    <li><a href="/om/">OM jOUXli</a></li>
+    <li><a href="/kontakt/">KONTAKT</a></li>
+  </ul>
+</div>
+
+<style>
+  body {
+    position: relative;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    color: #3f352c;
+    font-size: 2.1rem;
+    font-family: "Heebo", sans-serif;
+    margin-right: 20px;
+  }
+
+  button {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+  }
+
+  button:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 0;
+    bottom: 0px;
+    background: var(--darkbrown);
+    height: 2px;
+    transition-property: width;
+    transition-timing-function: ease-out;
+  }
+
+  button:hover:after,
+  button:focus:after,
+  button:active:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+    transition-duration: 0.4s;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .logo--hide {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    height: 130px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+
+
+  }
+
+  .menu a {
+    font-size: 70px;
+    font-family: "Habibi", serif;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 0;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100vw;
+    position: absolute;
+    align-items: end;
+    background: rgba(242, 229, 213, 0.95);
+    z-index: 4;
+    top: 130px;
+    bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    width: 1000px;
+    margin-inline: auto;
+    text-align: right;
+    padding-top: 8em;
+  }
+
+  ul li {
+    padding-bottom: 25px;
+  }
+
+  .menu a {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu a:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    width: 0;
+    bottom: 0px;
+    background: var(--darkbrown);
+    height: 2px;
+    transition-property: width;
+    transition-timing-function: ease-out;
+  }
+
+  .menu a:hover:after,
+  .menu a:focus:after,
+  .menu a:active:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+    transition-duration: 0.4s;
+  }
+
+  .menu_active {
+    display: flex;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    .logo {
+    margin-left: 0px;
+  }
+
+  button {
+    margin-right: 0px;
+  }
+
+  }
+
+  @media (max-width: 1200px) {
+    .menu a {
+      font-size: 50px;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .menu {
+      padding-top: 6rem;
+      padding-right: 0;
+    }
+
+
+
+    ul {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+      padding-top: 0em;
+    }
+  }
+</style>

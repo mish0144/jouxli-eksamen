@@ -1,0 +1,111 @@
+---
+import Nav_light from "../components/Nav_light.astro";
+import Footer_light from "../components/Footer_light.astro";
+import { Image, Picture } from "@astrojs/image/components";
+import "../stylesheets/global.css";
+import video from "../assets/video/banner_vid.mp4";
+import heroIndex from "../assets/icons/jouxli_index.svg";
+---
+
+<script src="../scripts/menu.js"></script>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Jouxli skaber betagende håndlavede unika smykker i dansk design – hver af dem lavet med historie støbt i dem og med nøje udvalgte materialer." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>jOUXli</title>
+  </head>
+
+  <body>
+    <header>
+      <Nav_light />
+    </header>
+    <main>
+      <div id="banner">
+        <Image src={heroIndex} width={null} height={null} alt="jouxli banner text" format={"svg"} class="banner_img banneranimation1" />
+      </div>
+      <video autoplay muted loop preload="auto">
+        <source src={video} type="video/mp4" />
+      </video>
+    </main>
+    <Footer_light />
+  </body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    background-image: url(/src/assets/img/dem.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+    height: 100dvh;
+    justify-content: space-between;
+  }
+
+  .banner_img {
+    width: 100%;
+    padding: 0 1em;
+  }
+
+  video {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    .banner_img {
+      width: 100%;
+      margin-top: 2%;
+    }
+
+    body {
+      margin-inline: auto;
+    }
+
+    video {
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .banneranimation1 {
+      animation-name: banneranimation1_kf;
+      animation-duration: 2.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes banneranimation1_kf {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 0.25;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      75% {
+        opacity: 0.75;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+</style>

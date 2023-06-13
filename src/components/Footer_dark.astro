@@ -1,0 +1,73 @@
+---
+import "../stylesheets/global.css";
+import { Image, Picture } from "@astrojs/image/components";
+import iconFace from "../assets/icons/facebook-dark.svg";
+import iconInsta from "../assets/icons/instagram-dark.svg";
+---
+
+<footer>
+  <a href="https://goo.gl/maps/UGkkWZiHbx1mpEEaA?coh=178571&entry=tt" target=”_blank”>
+    <div class="footer1">
+      <h3>ADRESSE</h3>
+      <p>Jægersborg Allé 1G</p>
+      <p>2920 Charlottenlund</p>
+    </div>
+  </a>
+  <div class="footer_icons">
+    <a href="https://www.facebook.com/jouxli" target=”_blank”><Image src={iconFace} alt="logo" width={51} height={53} format={"svg"} /></a>
+    <a href="https://www.instagram.com/jouxli/" target=”_blank”><Image src={iconInsta} alt="logo" width={51} height={53} format={"svg"} /></a>
+  </div>
+</footer>
+
+<style>
+  h3 {
+    font-size: 1.4rem;
+    color: var(--darkbrown);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin-inline: auto;
+    z-index: 5;
+    margin-top: 2.5em;
+    padding-bottom: 2.5em;
+    position: relative;
+  }
+
+  .footer1 {
+    font-family: "Heebo", sans-serif;
+    font-size: 20px;
+    color: var(--darkbrown);
+    margin-left: 20px;
+  }
+
+  .footer_icons {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 20px;
+    gap: 10px;
+  }
+
+  .facebook_icon {
+    margin-right: 10px;
+  }
+
+  @media (min-width: 1200px) {
+    .footer_icons,
+    .footer1 {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }
+</style>

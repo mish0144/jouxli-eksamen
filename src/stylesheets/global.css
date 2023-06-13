@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Habibi&family=Heebo:wght@300&display=swap");
+/*   font-family: 'Habibi', serif;
+    font-family: 'Heebo', sans-serif;*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --h1_mobile: 3.2rem;
+  --h2_mobile: 1.8rem;
+  --h3_mobile: 1.8rem;
+  --p_mobile: 1.4rem;
+
+  --h1_desktop: 8.2rem;
+  --h2_desktop: 3.6rem;
+  --h3_desktop: 2.5rem;
+  --p_desktop: 1.6rem;
+
+  --beige: #f1e9df;
+  --darkbrown: #3F352C;
+  --black: #000000;
+  --lightbrown: #806350;
+  --grey: #B4A69D;
+  --white: #FFFFFF;
+}
+
+h1 {
+  color: var(--darkbrown);
+  font-family: "Habibi", serif;
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  font-weight: lighter;
+}
+
+h3 {
+  color: var(--darkbrown);
+  font-family: "Heebo";
+  font-weight: lighter;
+}
+
+h2 {
+  color: var(--darkbrown);
+  font-family: "Habibi", serif;
+  font-weight: lighter;
+}
+
+p {
+  font-family: "Heebo", sans-serif;
+  color: var(--black);
+}
+
+body {
+  background-color: var(--beige);
+  position: relative;
+}

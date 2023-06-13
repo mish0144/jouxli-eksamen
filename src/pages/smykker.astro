@@ -1,0 +1,351 @@
+---
+import "../stylesheets/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Shelf from "../components/Shelf.astro";
+
+
+const { title } = Astro.props;
+
+const url = "https://usviimqgxrpwxpkpwtcw.supabase.co/rest/v1/jouxli";
+
+const options = {
+	headers: {
+		apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVzdmlpbXFneHJwd3hwa3B3dGN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzMTIyOTcsImV4cCI6MjAwMDg4ODI5N30.zcE9JmufoPRskT3SI3iWA5xjnjh_AMJBeyYddTed-LY"
+	},
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const randomPhotos = shuffleArray(data);
+const TallPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "3");
+const FlatPhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "2");
+const SquarePhotos = randomPhotos.filter((jewelry) => jewelry.typephoto == "1");
+
+
+---
+
+<script src="../scripts/menu2.js"></script>
+<script src="../scripts/fadein.js"></script>
+
+<MainLayout withBackground>
+    <h1>SMYKKER</h1>
+    <p>Opdag den verden jOUXli skaber med sine smykker. En verden af historie støbt ind i håndlavede unika smykker i dansk design lavet af nøje udvalgte materialer.</p>
+    <section class="listview_grid">
+        <div class="listview_grid_boxbig1_1 box1 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}/>
+        </div>
+        <div class="listview_grid_box2_1 box2 elem to-fade-in">
+            <Shelf  indhold={FlatPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_2 box3 elem to-fade-in">
+            <Shelf indhold={TallPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box4 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box5 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box6 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_2_2nd box7 elem to-fade-in">
+            <Shelf indhold={TallPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box8 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_box2_1 box9 elem to-fade-in">
+            <Shelf indhold={FlatPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxbig1_1 box10 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+
+
+        <div class="listview_grid_boxbig1_1 box1 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}/>
+        </div>
+        <div class="listview_grid_box2_1 box2 elem to-fade-in">
+            <Shelf  indhold={FlatPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_2 box3 elem to-fade-in">
+            <Shelf indhold={TallPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box4 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box5 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box11 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_2_2nd box12 elem to-fade-in">
+            <Shelf indhold={TallPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxsmall1_1 box13 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+        <div class="listview_grid_box2_1 box14 elem to-fade-in">
+            <Shelf indhold={FlatPhotos.shift()}>
+        </div>
+        <div class="listview_grid_boxbig1_1 box15 elem to-fade-in">
+            <Shelf indhold={SquarePhotos.shift()}>
+        </div>
+            
+            
+    </section>
+</MainLayout>
+
+<style>
+    p {
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 800px;
+        font-size: var(--p_mobile);
+    }
+    
+    h1 {
+    font-size: var(--h1_mobile);
+  }
+
+
+    img {
+        width: 100%;
+
+    }
+
+    .listview_grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        max-width: 1000px;
+        gap: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 3rem;
+        margin-bottom: 70px;
+        text-align: center;
+    }
+
+
+    .listview_grid_boxbig1_1 {
+        width: 100%;
+        grid-column: 1/3;
+        grid-row: span 2;
+    }
+
+    .listview_grid_boxsmall1_2 {
+        width: 100%;
+        grid-row: span 2;
+    }
+
+    .listview_grid_box2_1 {
+        width: 100%;
+        grid-column: span 2;
+    }
+
+    .listview_grid_boxsmall1_1 {
+        width: 100%;   
+    }
+
+    .listview_grid_boxsmall1_2_2nd {
+        width: 100%;
+        grid-row: span 2;
+        grid-column: 2/3;
+    }
+
+    .hover_text {
+        display: none;
+    }
+
+    a {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-decoration: none;
+        color: var(--beige);
+    }
+
+
+    .to-fade-ink {
+        opacity: 0;
+        &.fade-in {
+        animation: fade-in 3s forwards;
+        }
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    @media (min-width: 1000px) {
+        h1 {
+        font-size: var(--h1_desktop);
+        font-weight: 100;
+        }
+
+        p {
+        font-size: var(--p_desktop);
+        margin-inline: auto;
+        }
+
+        h2 {
+        color: var(--beige);
+        font-weight: 100;
+        }
+
+        h3 {
+        color: var(--beige);
+        }
+
+        .listview_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+        max-width: 1000px;
+        gap: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-inline: auto;
+    }
+    
+    .box1 {
+        grid-column: 1/3;
+    }
+
+    .box2 {
+        grid-column: 1/3;
+    }
+
+    .box3 {
+        grid-column: 1/2;
+    }
+
+    .box4 {
+        grid-column: 2/3;
+    }
+
+    .box5 {
+        grid-column: 2/3;
+    }
+
+    .box6 {
+        grid-column: 3/4;
+        grid-row: 1;
+    }
+
+    .box7 {
+        grid-column: 4/5;
+        grid-row: 1/3
+    }
+
+    .box8 {
+        grid-column: 3/4;
+        grid-row: 2;
+    }
+
+    .box9 {
+        grid-column: 3/5;
+        grid-row: 3;
+    }
+
+    .box10 {
+        grid-column: 3/5;
+        grid-row: 4/6
+    }
+
+    .box11 {
+        grid-column: 3/4;
+        grid-row: 6;
+    }
+
+    .box12 {
+        grid-column: 4/5;
+        grid-row: 6/8
+    }
+
+    .box13 {
+        grid-column: 3/4;
+        grid-row: 7;
+    }
+
+    .box14 {
+        grid-column: 3/5;
+        grid-row: 8;
+    }
+
+    .box15 {
+        grid-column: 3/5;
+        grid-row: 9/11
+    }
+
+    a {
+        z-index: 1;
+    }
+
+    .box1, .box3, .box4, .box7, .box9, .box12, .box14 {
+        background-color: var(--darkbrown);
+        z-index: 1;
+    }
+
+    .box2, .box5, .box6, .box8, .box10, .box11, .box13, .box15 {
+        background-color: var(--lightbrown);
+        z-index: 1;
+    }
+
+    .hover_text {
+        display: block;
+        grid-row: 1/2;
+        grid-column: 1/2;
+        z-index: 2;
+        margin-block: auto;
+        visibility: hidden;
+        color: var(--beige);
+    }
+
+    .box1:hover .hover_text, .box2:hover .hover_text, .box3:hover .hover_text, .box4:hover .hover_text, .box5:hover .hover_text, .box6:hover .hover_text, .box7:hover .hover_text, .box8:hover .hover_text, .box9:hover .hover_text, .box10:hover .hover_text, .box11:hover .hover_text, .box12:hover .hover_text, .box13:hover .hover_text, .box14:hover .hover_text, .box15:hover .hover_text {
+        visibility: visible;
+        transition: .5s ease;
+    }
+
+    .box1:hover img, .box2:hover img, .box3:hover img, .box4:hover img, .box5:hover img, .box6:hover img, .box7:hover img, .box8:hover img, .box9:hover img, .box10:hover img, .box11:hover img, .box12:hover img, .box13:hover img, .box14:hover img, .box15:hover img {
+        opacity: 0.2;
+        transition: .5s ease;
+    }
+
+
+    img {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        z-index: 0;
+    }
+
+    #readmore {
+        color: var(--beige);
+        font-size: var(--p_mobile);
+    }
+
+    #readmore:hover {
+        text-decoration: underline;
+        transition: .5s ease;
+    }
+
+    }
+</style>

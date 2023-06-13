@@ -1,0 +1,31 @@
+---
+import Nav_dark from "../components/Nav_dark.astro";
+import Footer_dark from "../components/Footer_dark.astro";
+import "../stylesheets/global.css";
+import Background from "../components/Background.astro";
+const {withBackground} = Astro.props;
+---
+
+<script src="../scripts/menu2.js"></script>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Jouxli skaber betagende håndlavede unika smykker i dansk design – hver af dem lavet med historie støbt i dem og med nøje udvalgte materialer." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>jOUXli</title>
+  </head>
+
+  <body>
+    <header>
+      <Nav_dark />
+    </header>
+    <main>
+        <slot/>
+    </main>
+    { withBackground && <Background />}
+    <Footer_dark />
+  </body>
+</html>
