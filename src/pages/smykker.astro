@@ -136,8 +136,6 @@ const data = JSON.stringify(await response.json());
 </MainLayout>
 
 <script>
-    
-
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -145,7 +143,7 @@ const data = JSON.stringify(await response.json());
         }
         return array;
     }
-    console.log(document.querySelector(".listview_grid"))
+
     const imageDataString = document.querySelector(".listview_grid").dataset.images
     const randomPhotos = shuffleArray(JSON.parse(imageDataString));
 
@@ -159,12 +157,11 @@ const data = JSON.stringify(await response.json());
         // Read the message from the data attribute.
         const number = this.dataset.number - 1;
         const type = this.dataset.type;
-        console.log(number, type)
         const data = {
             "Tall": TallPhotos,
             "Flat": FlatPhotos,
             "Square": SquarePhotos
-        }[type][number]
+        }[type].shift()
         this.querySelector('img').src = `../../product_img/${data.galleryphoto}`;
         this.querySelector('img').alt = data.name;
         this.querySelector('h3').textContent = data.price;
@@ -244,7 +241,7 @@ const data = JSON.stringify(await response.json());
     }
 
 
-    .to-fade-ink {
+    .to-fade-in {
         opacity: 0;
         &.fade-in {
         animation: fade-in 3s forwards;

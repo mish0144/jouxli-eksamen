@@ -1,20 +1,14 @@
-function checkElementLocation() {
-    var $window = $(window);
-    var bottom_of_window = $window.scrollTop() + $window.height();
-  
-    $('.elem').each(function(i) {
-      var $that = $(this);
-      var bottom_of_object = $that.position().top + $that.outerHeight();
-  
-      //if element is in viewport, add the animate class
-      if (bottom_of_window > bottom_of_object) {
-        $(this).addClass('fade-in');
+const isVisible = (element) => window.scrollY + window.innerHeight > element.offsetTop // Er elementer over bunden af skærmen
+const elements = document.getElementsByClassName('elem') // Alle .elem elementer
+
+for (let element of elements) {
+  if (isVisible(element)) { // Kan vi se elementet fra starten?
+    element.classList.add('fade-in') // Fade in fra starten
+  } else {
+    window.addEventListener('scroll', () => { // Hver du du scroller tjekker vi lige igen
+      if (isVisible(element)) {
+        element.classList.add('fade-in')
       }
-    });
+    })  
   }
-  // if in viewport, show the animation
-  checkElementLocation();
-  
-  $(window).on('scroll', function() {
-    checkElementLocation();
-  });
+}
