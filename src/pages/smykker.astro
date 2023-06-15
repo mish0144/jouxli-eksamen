@@ -20,8 +20,8 @@ const data = JSON.stringify(await response.json());
 
 
 ---
+
 <script src="../scripts/menu2.js"></script>
-<script src="../scripts/fadein.js"></script>
 
 <MainLayout withBackground>
     <h1>SMYKKER</h1>
@@ -137,11 +137,7 @@ const data = JSON.stringify(await response.json());
 
 <script>
     function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+        return array.sort(() => 0.5 - Math.random())
     }
 
     const imageDataString = document.querySelector(".listview_grid").dataset.images
@@ -169,6 +165,23 @@ const data = JSON.stringify(await response.json());
     }
   
     customElements.define('data-switcher', DataSwitcher);
+
+    
+    const isVisible = (element) => window.scrollY + window.innerHeight > element.offsetTop // Er elementer over bunden af skærmen
+    const elements = document.getElementsByClassName('elem') // Alle .elem elementer
+
+    for (let element of elements) {
+        if (isVisible(element)) { // Kan vi se elementet fra starten?
+        element.classList.add('fade-in') // Fade in fra starten
+    } else {
+        window.addEventListener('scroll', () => { // Hver du du scroller tjekker vi lige igen
+        if (isVisible(element)) {
+        element.classList.add('fade-in')
+      }
+    })  
+  }
+}
+
   </script>
 <style>
     p {
